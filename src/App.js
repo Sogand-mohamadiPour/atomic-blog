@@ -35,12 +35,20 @@ function App() {
 
   // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
   useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") setIsFakeDark(true);
+  }, []);
+
+  useEffect(() => {
     if (isFakeDark) {
       document.documentElement.classList.add("fake-dark-mode");
+      localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("fake-dark-mode");
+      localStorage.setItem("theme", "light");
     }
   }, [isFakeDark]);
+
 
 
   return (
