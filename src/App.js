@@ -13,16 +13,16 @@ function App() {
     Array.from({ length: 30 }, () => createRandomPost())
   );
   const [searchQuery, setSearchQuery] = useState("");
-  const [isFakeDark, setIsFakeDark] = useState(true);
+  const [isFakeDark, setIsFakeDark] = useState(false);
 
   // Derived state. These are the posts that will actually be displayed
   const searchedPosts =
     searchQuery.length > 0
       ? posts.filter((post) =>
-          `${post.title} ${post.body}`
-            .toLowerCase()
-            .includes(searchQuery.toLowerCase())
-        )
+        `${post.title} ${post.body}`
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase())
+      )
       : posts;
 
   function handleAddPost(post) {
@@ -34,12 +34,14 @@ function App() {
   }
 
   // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
-  useEffect(
-    function () {
-      document.documentElement.classList.toggle("fake-dark-mode");
-    },
-    [isFakeDark]
-  );
+  useEffect(() => {
+    if (isFakeDark) {
+      document.documentElement.classList.add("fake-dark-mode");
+    } else {
+      document.documentElement.classList.remove("fake-dark-mode");
+    }
+  }, [isFakeDark]);
+
 
   return (
     <section>
