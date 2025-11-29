@@ -13,7 +13,7 @@ function App() {
     Array.from({ length: 30 }, () => createRandomPost())
   );
   const [searchQuery, setSearchQuery] = useState("");
-  const [isFakeDark, setIsFakeDark] = useState(false);
+  const [isFakeDark, setIsFakeDark] = useState(true);
 
   // Derived state. These are the posts that will actually be displayed
   const searchedPosts =
