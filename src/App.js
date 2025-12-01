@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
+import { PostProvider, PostContext } from "./PostContext";
 
 function createRandomPost() {
   return {
@@ -11,6 +12,13 @@ function createRandomPost() {
 
 
 function App() {
+  const [isFakeDark, setIsFakeDark] = useState(false);
+
+  // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") setIsFakeDark(true);
+  }, []);
   useEffect(() => {
     if (isFakeDark) {
       document.documentElement.classList.add("fake-dark-mode");
@@ -22,14 +30,8 @@ function App() {
   }, [isFakeDark]);
 
   return (
-    // 2) PROVIDE VALUE RO CHILDE COMPONENTS  
-    <PostContext.Provider value={{
-      posts: searchedPosts,
-      onAddPost: handleAddPost,
-      onClearPosts: handleClearPosts,
-      searchQuery,
-      setSearchQuery,
-    }}>
+    // 2) PROVIDE CONTEXT VALUE TO CHILD COMPONENTS
+    <PostProvider>
       <section>
         <button
           onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
@@ -43,7 +45,7 @@ function App() {
         <Archive />
         <Footer />
       </section>
-    </PostContext.Provider>
+    </PostProvider>
   );
 }
 
