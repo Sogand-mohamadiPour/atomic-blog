@@ -30,8 +30,6 @@ function App() {
   }, [isFakeDark]);
 
   return (
-    // 2) PROVIDE CONTEXT VALUE TO CHILD COMPONENTS
-
     <section>
       <button
         onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
