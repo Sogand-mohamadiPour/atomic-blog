@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function SlowComponent() {
-const words = Array.from({ length: 100_000 }, () => "WORD"); 
+  const words = Array.from({ length: 1_000 }, () => "WORD");
 
   return (
     <ul>
@@ -14,7 +14,7 @@ const words = Array.from({ length: 100_000 }, () => "WORD");
   );
 }
 
-export default function Test() {
+function Counter({children}) {
   const [count, setCount] = useState(0);
 
   return (
@@ -24,7 +24,19 @@ export default function Test() {
         Increase: {count}
       </button>
 
-      <SlowComponent />
+      {children}
+    </div>
+  );
+}
+
+export default function Test() {
+
+  return (
+    <div>
+      <h1>Slow counter?!?</h1>
+      <Counter>
+        <SlowComponent />
+      </Counter>
     </div>
   );
 }
