@@ -1,9 +1,7 @@
 import { useState } from "react";
 
 function SlowComponent() {
-const words = Array.from({ length: 100 }, () => "WORD"); // 100 instead of 10000
-console.log(words.length);
-
+const words = Array.from({ length: 100_000 }, () => "WORD"); 
 
   return (
     <ul>
