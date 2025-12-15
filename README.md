@@ -1,34 +1,56 @@
 # 📝 Atomic Blog
 A simple blog application where you can **create**, **archive**, **restore**, and **delete** blog posts.
-Built with **Create React App (CRA)** and powered by the **Context API** for state management.
+Built with **Create React App (CRA)** and designed to practice **advanced React state management and performance optimization patterns**.
 
 ## 🚀 Features
-- ✍️ Write your own blog posts
-- 📦 Archive posts to hide them without deleting
-- 🔄 Restore archived posts anytime
-- 🗑️ Delete posts permanently
+- ✍️ Create your own blog posts
+- 📦 Archive posts (hide without deleting)
+- 🔄 Restore archived posts
+- 🗑️ Permanently delete posts
 - 🌓 Dark & light theme toggle
-- ⚛️ Context API used as the main logic (first time practicing it)
-- 📱 Not responsive yet — desktop-first version
+- ⚛️ Global state management using **Context API + useReducer**
+- 🧠 Performance optimizations using:
+  - React.memo
+  - useMemo
+  - useCallback
+- 🧪 Multiple implementations available to compare approaches
+- 📱 Desktop-first (not responsive yet)
 
 ## 🛠️ Tech Stack
-- React (CRA)
+- React (Create React App)
 - Context API
+- useReducer
+- React.memo
+- useMemo
+- useCallback
 - CSS
 
-## 📂 Project Purpose
-This project was created to practice:
-- Working with the Context API
-- Managing global state
-- Handling CRUD operations in React
-- Implementing theme toggling
+## 📂 Project Structure & Versions
+Inside the `src` folder, you can find **different versions of the app**, each showcasing a different approach to state management and optimization:
+- Basic Context API usage
+- Context API + useReducer
+- Optimized versions using memo, useMemo, and useCallback
 
-## ▶️ How to Run
+This structure allows you to compare different patterns and understand when optimizations are actually needed.
+
+## 🎯 Project Purpose
+This project was created to practice:
+- Context API as a main state management solution
+- useReducer for predictable and scalable state updates
+- Preventing unnecessary re-renders
+- Correct usage of memoization techniques
+- CRUD operations in React
+- Theme toggling with global state
+
+## ⭐Installation
 ```bash
+git clone https://github.com/Sogand-mohamadiPour/atomic-blog.git
+cd atomic-blog
 npm install
 npm start
 ```
 
 ## 📌 Notes
-- This is my first project using Context API as the main logic.
+- This is a learning-focused project, not production-ready.
 - Responsiveness is not implemented yet.
+- Each version exists for educational comparison purposes.
