@@ -45,9 +45,9 @@ function App() {
   const archiveOptions = useMemo(() => {
     return {
       show: false,
-      title: "Post archived in additio to main posts",
+      title: `Post archived in additio to ${posts.length} main posts`,
     };
-  }, []);
+  }, [posts]);
 
   return (
     <section>
