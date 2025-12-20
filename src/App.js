@@ -47,7 +47,7 @@ function App() {
       show: false,
       title: `Post archived in additio to ${posts.length} main posts`,
     };
-  }, [posts]);
+  }, [posts.length]);
 
   return (
     <section>
