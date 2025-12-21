@@ -1,3 +1,4 @@
+// Context API as main logic
 import { useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
 import { PostProvider, usePosts } from "./PostContext";
@@ -15,7 +16,6 @@ function createRandomPost() {
 function App() {
   const [isFakeDark, setIsFakeDark] = useState(false);
 
-  // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
   useEffect(() => {
     const saved = localStorage.getItem("theme");
     if (saved === "dark") setIsFakeDark(true);
