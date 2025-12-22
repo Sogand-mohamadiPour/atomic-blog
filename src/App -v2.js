@@ -16,7 +16,6 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isFakeDark, setIsFakeDark] = useState(false);
 
-  // Derived state. These are the posts that will actually be displayed
   const searchedPosts =
     searchQuery.length > 0
       ? posts.filter((post) =>
@@ -34,7 +33,6 @@ function App() {
     setPosts([]);
   }
 
-  // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
   useEffect(
     function () {
       document.documentElement.classList.toggle("fake-dark-mode");
@@ -168,7 +166,7 @@ function List({ posts }) {
 
 const Archive = memo(function Archive({ archiveOptions, onAddPost }) {
   const [posts] = useState(() =>
-    // 💥 WARNING: This might make your computer slow! Try a smaller `length` first
+    // 💥 WARNING: This might make your computer slow!
     Array.from({ length: 10000 }, () => createRandomPost())
   );
 
